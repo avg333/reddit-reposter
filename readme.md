@@ -31,7 +31,6 @@
 > - [🤖 Automate with GitHub Actions](#-automate-with-github-actions)
 > - [🤝 Contributing](#-contributing)
 > - [📄 License](#-license)
-> - [👏 Acknowledgments](#-acknowledgments)
 
 ---
 
@@ -56,8 +55,9 @@ Ensure you have the following dependencies installed on your system:
 * **Python**: `version 3.12`
 * **MongoDB**: `version 6.0`
 
-The MongoDB database can be hosted locally or on a [cloud platform](https://www.mongodb.com/atlas/database). You will
-also need to obtain [Reddit](https://www.reddit.com/wiki/api/)
+The MongoDB database can be hosted locally or on a [cloud platform](https://www.mongodb.com/atlas/database).
+
+You will also need to obtain [Reddit](https://www.reddit.com/wiki/api/)
 and [Twitter](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api) API
 keys to obtain the necessary credentials for the environment.
 
@@ -144,6 +144,9 @@ The environment variables are securely stored in GitHub Secrets and include data
 Twitter API keys, and the subreddit to repost from.
 
 This automation ensures that the bot runs regularly without manual intervention, making it easy to maintain and operate.
+
+The default setting is a one-hour period for the bot's execution, but this can be modified in
+the `.github/workflows/reddit-reposter.yml` file. The period is set using a [cron expression](https://crontab.guru/).
 
 ---
 
