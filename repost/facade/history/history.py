@@ -3,7 +3,6 @@ import logging
 from repost.client.mongodb.mongo import MongoDBClient
 from repost.domain.clients.mongo_client_user import MongoClientUser
 from repost.domain.reddit_post import RedditPost
-from repost.exception.no_posts_found_exception import NoPostsFoundException
 
 
 class HistoryManager:
@@ -11,6 +10,10 @@ class HistoryManager:
         self.mongo_db_client = MongoDBClient(mongo_client_user)
 
     def filter_not_reposted_posts(self, reddit_posts: list[RedditPost]) -> list[RedditPost]:
+        if not reddit_posts:
+            logging.warning("There are no posts to filter")
+            return []
+
         posts_ids = [post.id for post in reddit_posts]
         logging.info(f"Filtering if in {len(posts_ids)} posts are available posts to repost...")
 
@@ -19,8 +22,7 @@ class HistoryManager:
         not_uploaded_posts = list(filter(lambda post: post.id in not_uploaded_ids, reddit_posts))
 
         if not not_uploaded_posts:
-            logging.error("No found not uploaded posts")
-            raise NoPostsFoundException
+            logging.warning("No previously no reposted posts were found")
 
         logging.info(f"{len(not_uploaded_posts)} posts are available to repost")
         return not_uploaded_posts

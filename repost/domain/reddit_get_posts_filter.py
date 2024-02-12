@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Optional
 
 
-@dataclass
+@dataclass(frozen=True)
 class RedditGetPostsFilter:
     hot_limit: Optional[int]
     top_limit: Optional[int]

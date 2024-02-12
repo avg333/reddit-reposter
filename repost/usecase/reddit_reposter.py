@@ -4,7 +4,7 @@ Upload to the Twitter platform a post of the chosen subreddit
 """
 
 __author__ = "Adrian Villar Gesto"
-__version__ = "2.0.1"
+__version__ = "2.1.0"
 __email__ = "adrian.villar.gesto@gmail.com"
 __status__ = "Production"
 
@@ -64,4 +64,4 @@ class RedditReposter:
                 logging.info(f"Post {reddit_post.id} was reposted successfully!")
                 return
 
-        logging.info("No post was reposted")
+        logging.warning("No post was reposted")

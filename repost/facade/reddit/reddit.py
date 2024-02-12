@@ -10,7 +10,6 @@ from prawcore import PrawcoreException
 from repost.domain.clients.reddit_client_user import RedditClientUser
 from repost.domain.reddit_get_posts_filter import RedditGetPostsFilter
 from repost.domain.reddit_post import RedditPost
-from repost.exception.no_posts_found_exception import NoPostsFoundException
 from repost.facade.reddit.mapper.reddit_mapper import map_posts_to_reddit_posts
 
 IMGUR_LINK = "imgur"
@@ -32,10 +31,9 @@ class RedditPostFetcher:
         valid_posts = self._get_valid_posts(reddit_posts)
 
         if not valid_posts:
-            logging.error("No valid posts found")
-            raise NoPostsFoundException
+            logging.warning("No valid posts found")
 
-        logging.info(f"Found {len(valid_posts)} posts!")
+        logging.info(f"Found {len(valid_posts)} valid posts!")
         return valid_posts
 
     def _get_subreddit_posts(self, reddit_subreddit: str, reddit_filter: RedditGetPostsFilter) -> list[Submission]:
