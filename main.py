@@ -3,7 +3,7 @@ import argparse
 from repost.usecase.reddit_reposter import RedditReposter, DEFAULT_LIMIT
 
 
-def _parse_args():
+def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='Reddit Reposter')
     parser.add_argument('--subreddit', type=str, help='Subreddit to repost', required=True)
 
