@@ -4,7 +4,7 @@ Upload to the Twitter platform a post of the chosen subreddit
 """
 
 __author__ = "Adrian Villar Gesto"
-__version__ = "2.2.0"
+__version__ = "2.2.1"
 __email__ = "adrian.villar.gesto@gmail.com"
 __status__ = "Production"
 
@@ -44,7 +44,7 @@ class RedditReposter:
 
         reddit_filter = RedditGetPostsFilter(hot_limit, top_limit, controversial_limit, new_limit)
 
-        logging.info(f"Starting repost of subreddit {subreddit}...")
+        logging.info(f"Starting repost of subreddit {subreddit} with filter {reddit_filter}...")
 
         reddit_posts = self.reddit_post_fetcher.get_reddit_posts(subreddit, reddit_filter)
 
