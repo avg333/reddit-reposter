@@ -4,7 +4,7 @@ Upload to the Twitter platform a post of the chosen subreddit
 """
 
 __author__ = "Adrian Villar Gesto"
-__version__ = "2.1.0"
+__version__ = "2.2.0"
 __email__ = "adrian.villar.gesto@gmail.com"
 __status__ = "Production"
 
@@ -12,6 +12,8 @@ import logging
 
 from repost.domain.clients.reposter_clients import ReposterClients
 from repost.domain.reddit_get_posts_filter import RedditGetPostsFilter
+from repost.domain.reddit_post import RedditPost
+from repost.domain.twitter_post import TwitterPost
 from repost.facade.history.history import HistoryManager
 from repost.facade.image.image import save_url_image
 from repost.facade.reddit.reddit import RedditPostFetcher
@@ -49,7 +51,13 @@ class RedditReposter:
         reddit_valid_posts = self.history_manager.filter_not_reposted_posts(reddit_posts)
 
         for reddit_post in reddit_valid_posts:
+            if self._repost_single_post(reddit_post):
+                return
 
+        logging.warning("No post was reposted")
+
+    def _repost_single_post(self, reddit_post: RedditPost) -> TwitterPost or None:
+        try:
             logging.info(f"Reposting post {reddit_post.id}...")
 
             save_url_image(reddit_post.url, reddit_post.media_filename)
@@ -58,10 +66,10 @@ class RedditReposter:
 
             twitter_post = self.twitter_poster.post_reddit_post_in_twitter(reddit_post)
 
+            logging.info(f"Post {reddit_post.id} was reposted successfully!")
+
+            return twitter_post
+        except Exception:
+            logging.error(f"An error occurred while reposting post {reddit_post.id}", exc_info=True)
+        finally:
             remove_img(reddit_post.media_filename)
-
-            if twitter_post:
-                logging.info(f"Post {reddit_post.id} was reposted successfully!")
-                return
-
-        logging.warning("No post was reposted")
