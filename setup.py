@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='reddit-reposter',
-    version='2.0.0',
+    version='2.0.1',
     url='https://github.com/avg333/reddit-reposter',
     author='Adrian Villar Gesto',
     author_email='adrian.villar.gesto@gmail.com',
