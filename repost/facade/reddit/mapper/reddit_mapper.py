@@ -11,7 +11,7 @@ def map_posts_to_reddit_posts(posts: list[Submission]) -> list[RedditPost]:
 
 def _map_post_to_reddit_post(post: Submission) -> RedditPost:
     return RedditPost(
-        author=post.author.name,
+        author=post.author.name if post.author else "Unknown",
         created_utc=datetime.fromtimestamp(post.created_utc),
         id=post.id,
         is_original_content=post.is_original_content,
@@ -22,7 +22,7 @@ def _map_post_to_reddit_post(post: Submission) -> RedditPost:
         permalink=post.permalink,
         score=post.score,
         selftext=post.selftext,
-        subreddit=post.subreddit.display_name,
+        subreddit=post.subreddit.display_name if post.subreddit else "Unknown",
         title=post.title,
         upvote_ratio=post.upvote_ratio,
         url=post.url)

@@ -4,7 +4,7 @@ Upload to the Twitter platform a post of the chosen subreddit
 """
 
 __author__ = "Adrian Villar Gesto"
-__version__ = "2.2.2"
+__version__ = "2.2.3"
 __email__ = "adrian.villar.gesto@gmail.com"
 __status__ = "Production"
 
