@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='reddit-reposter',
-    version='2.2.3',
+    version='2.2.4',
     url='https://github.com/avg333/reddit-reposter',
     author='Adrian Villar Gesto',
     author_email='adrian.villar.gesto@gmail.com',
@@ -11,18 +11,19 @@ setup(
     install_requires=[
         'certifi==2024.2.2',
         'charset-normalizer==3.3.2',
-        'dnspython==2.5.0',
+        'dnspython==2.6.1',
         'idna==3.6',
         'oauthlib==3.2.2',
         'pillow==10.2.0',
         'praw==7.7.1',
         'prawcore==2.4.0',
-        'pymongo==4.6.1',
+        'pymongo==4.6.2',
         'requests==2.31.0',
-        'requests-oauthlib==1.3.1',
+        'requests-oauthlib==1.4.0',
+        'setuptools==69.2.0',
         'tweepy==4.14.0',
         'update-checker==0.18.0',
-        'urllib3==2.2.0',
+        'urllib3==2.2.1',
         'websocket-client==1.7.0',
     ],
     classifiers=[
