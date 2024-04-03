@@ -14,7 +14,7 @@ setup(
         'dnspython==2.6.1',
         'idna==3.6',
         'oauthlib==3.2.2',
-        'pillow==10.2.0',
+        'pillow==10.3.0',
         'praw==7.7.1',
         'prawcore==2.4.0',
         'pymongo==4.6.2',
