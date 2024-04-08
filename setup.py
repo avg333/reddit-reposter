@@ -17,7 +17,7 @@ setup(
         'pillow==10.2.0',
         'praw==7.7.1',
         'prawcore==2.4.0',
-        'pymongo==4.6.2',
+        'pymongo==4.6.3',
         'requests==2.31.0',
         'requests-oauthlib==1.4.0',
         'setuptools==69.2.0',
