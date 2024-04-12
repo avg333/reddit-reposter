@@ -12,7 +12,7 @@ setup(
         'certifi==2024.2.2',
         'charset-normalizer==3.3.2',
         'dnspython==2.6.1',
-        'idna==3.6',
+        'idna==3.7',
         'oauthlib==3.2.2',
         'pillow==10.2.0',
         'praw==7.7.1',
