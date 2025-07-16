@@ -5,7 +5,7 @@
     <h1 align="center">REDDIT-REPOSTER</h1>
 </p>
 <p align="center">
-    <em>Repost Reddit to Twitter: Automate viral content sharing</em>
+    <em>Repost Reddit to X (aka Twitter): Automate viral content sharing</em>
 </p>
 <p align="center">
 	<img src="https://img.shields.io/github/license/avg333/reddit-reposter?style=flat&color=0080ff" alt="license">
@@ -37,12 +37,12 @@
 ## 📍 Overview
 
 The reddit-reposter project is a production-ready codebase that specializes in reposting posts from Reddit to the
-Twitter platform. Its core functionality revolves around fetching posts from a chosen subreddit, filtering them based on
-various criteria, and reposting them on Twitter. The project provides easy configuration through command-line arguments,
+X platform. Its core functionality revolves around fetching posts from a chosen subreddit, filtering them based on
+various criteria, and reposting them on X. The project provides easy configuration through command-line arguments,
 allowing users to specify the subreddit to repost from and set limits for different types of posts (hot, top,
 controversial, new). With robust exception handling, media file management, and save history functionalities,
 reddit-reposter offers a valuable solution for automating the reposting process and amplifying content on both Reddit
-and Twitter.
+and X.
 
 ---
 
@@ -52,13 +52,13 @@ and Twitter.
 
 Ensure you have the following dependencies installed on your system:
 
-* **Python**: `version 3.12`
-* **MongoDB**: `version 6.0`
+* **Python**: `version 3.13`
+* **MongoDB**: `version 8.0`
 
 The MongoDB database can be hosted locally or on a [cloud platform](https://www.mongodb.com/atlas/database).
 
 You will also need to obtain [Reddit](https://www.reddit.com/wiki/api/)
-and [Twitter](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api) API
+and [X](https://docs.x.com/x-api/getting-started/getting-access) API
 keys to obtain the necessary credentials for the environment.
 
 ### ⚙️ Installation
@@ -88,10 +88,10 @@ export DB_URL=<mongodb-url>
 export REDDIT_CLIENT_ID=<reddit-client-id>
 export REDDIT_CLIENT_SECRET=<reddit-client-secret>
 export REDDIT_USER_AGENT=<reddit-user-agent>
-export TWITTER_API_KEY=<twitter-api-key>
-export TWITTER_API_KEY_SECRET=<twitter-api-key-secret>
-export TWITTER_ACCESS_TOKEN=<twitter-access-token>
-export TWITTER_ACCESS_TOKEN_SECRET=<twitter-access-token-secret>
+export TWITTER_API_KEY=<X-api-key>
+export TWITTER_API_KEY_SECRET=<X-api-key-secret>
+export TWITTER_ACCESS_TOKEN=<X-access-token>
+export TWITTER_ACCESS_TOKEN_SECRET=<X-access-token-secret>
 ```
 
 You can choose the database, collection and key field with the following environment variables:
@@ -114,10 +114,10 @@ The `--subreddit` argument is required and specifies the subreddit to repost fro
 optional arguments:
 
 ```sh
---hot <number> # Number of hot posts to repost
---top <number> # Number of top posts to repost
---controversial <number> # Number of controversial posts to repost
---new <number> # Number of new posts to repost
+--hot <number> # Number of hot posts to repost. Default is 10.
+--top <number> # Number of top posts to repost. Default is 10.
+--controversial <number> # Number of controversial posts to repost. Default is 10.
+--new <number> # Number of new posts to repost. Default is 10.
 ```
 
 ### 🧪 Tests
@@ -131,7 +131,7 @@ pytest
 ### 🤖 Automate with GitHub Actions
 
 This project uses [GitHub Actions](https://github.com/features/actions) to automate the execution of the Reddit Repost
-Bot. The bot is scheduled to run every hour, reposting content from a specified subreddit to Twitter.
+Bot. The bot is scheduled to run every hour, reposting content from a specified subreddit to X.
 
 The workflow involves several steps:
 
@@ -141,7 +141,7 @@ The workflow involves several steps:
 4. **Execute Repost Bot**: The bot is executed with the necessary environment variables.
 
 The environment variables are securely stored in GitHub Secrets and include database connection details, Reddit and
-Twitter API keys, and the subreddit to repost from.
+X API keys, and the subreddit to repost from.
 
 This automation ensures that the bot runs regularly without manual intervention, making it easy to maintain and operate.
 
