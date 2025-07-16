@@ -16,7 +16,7 @@ setup(
         'oauthlib==3.3.1',
         'pillow==11.3.0',
         'praw==7.8.1',
-        'prawcore==3.0.2',
+        'prawcore==2.4.0',
         'pymongo==4.13.2',
         'requests==2.32.4',
         'requests-oauthlib==2.0.0',
