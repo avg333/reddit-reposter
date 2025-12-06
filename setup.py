@@ -23,7 +23,7 @@ setup(
         'setuptools==80.9.0',
         'tweepy==4.16.0',
         'update-checker==0.18.0',
-        'urllib3==2.5.0',
+        'urllib3==2.6.0',
         'websocket-client==1.8.0',
     ],
     classifiers=[
